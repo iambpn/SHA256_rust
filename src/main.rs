@@ -152,7 +152,7 @@ impl SHA256 {
     }
 
     fn get_hash(&mut self, text: &String) -> String {
-        let line_feed = match text.find('\n') {
+        let line_feed = match text.find(&['\n', '\r'][..]) {
             Some(num) => num,
             None => text.len()
         };
